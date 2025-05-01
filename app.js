@@ -2,14 +2,14 @@ const generateSchedule = (city) => {
     const dates = [];
     const startDate = new Date(2025, 2, 1); // 1 Maret 2025
     
-    // Generate 30 hari
+ 
     for(let i = 0; i < 30; i++) {
         const currentDate = new Date(startDate);
         currentDate.setDate(startDate.getDate() + i);
         dates.push(currentDate);
     }
 
-    // Data waktu shalat contoh (perlu disesuaikan dengan data resmi)
+  
     const cityData = {
         jakarta: { imsak: '04:15', subuh: '04:25', terbit: '05:45', maghrib: '18:05' },
         surabaya: { imsak: '04:00', subuh: '04:10', terbit: '05:30', maghrib: '17:50' },
@@ -59,7 +59,7 @@ const generateSchedule = (city) => {
     document.getElementById('schedule').innerHTML = scheduleHTML;
 };
 
-// Fungsi untuk menambah menit (simulasi perubahan waktu)
+
 function addMinutes(time, minutesToAdd) {
     const [hours, minutes] = time.split(':').map(Number);
     const date = new Date();
@@ -68,10 +68,10 @@ function addMinutes(time, minutesToAdd) {
     return date.toTimeString().slice(0, 5);
 }
 
-// Event listener untuk dropdown
+
 document.getElementById('citySelect').addEventListener('change', (e) => {
     generateSchedule(e.target.value);
 });
 
-// Inisialisasi pertama
+
 generateSchedule('jakarta');
